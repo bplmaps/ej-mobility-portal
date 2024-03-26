@@ -1,0 +1,25 @@
+---
+import Button from './ui/button.astro';
+
+export interface Props {
+  title: string;
+  heroText: string;
+  splashText: string;
+  headerImage: Object;
+}
+
+const { title, heroText, splashText, headerImage } = Astro.props;
+---
+
+<div class="relative isolate overflow-hidden bg-gray-900 px-6 py-24 sm:py-32 lg:px-8 mb-8">
+  <img src={headerImage.src} alt={headerImage.altText} class="absolute inset-0 -z-10 h-full w-full object-cover brightness-25 saturate-50">
+
+  <div class="mx-6 md:mx-24 max-w-4xl text-left">
+    <h2 class="text-2xl md:text-3xl font-black tracking-tight text-white font-serif">{splashText}</h2>
+    <p class="mt-6 text-xl font-semibold leading-6 text-yellow-100">{heroText}</p>
+    <div class="py-4 flex">
+      <a href="/discover"><Button size="lg" style="outline" class="mr-4 font-bold">Read Articles</Button></a>
+      <a href="/collection-groups"><Button size="lg" style="outline" class="font-bold">Explore Collections</Button></a>
+    </div>
+  </div>
+</div>

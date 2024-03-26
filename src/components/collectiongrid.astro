@@ -1,0 +1,18 @@
+---
+import CollectionCard from "@components/itemCard/collectionCard.astro";
+import CardGrid from "@components/cardgrid.astro";
+
+
+import { getCollection } from "astro:content";
+const collection = await getCollection("collection-group");
+---
+
+<CardGrid>
+
+  {
+    collection.map((collectionGroup) => (
+    <CollectionCard
+      collectionGroup={collectionGroup}/>
+    ))
+  }
+</CardGrid>
